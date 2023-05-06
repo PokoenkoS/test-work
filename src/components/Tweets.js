@@ -4,6 +4,7 @@ import React from "react"
 import { Item, List, MainDiv, Img } from "../Main.styled";
 import logo from "../image/logo.svg";
 import picture from "../image/picture.svg";
+import rectangle from "../image/Rectangle 1.png";
 
 
 export const Tweets = ({data})=>{
@@ -15,7 +16,7 @@ export const Tweets = ({data})=>{
     // setFollowers(item.followers)
     //     }));
     //  },[])
-
+console.log(data);
    let user = data.map((item)=> item )
    
       const handleincrement =(e)=>{
@@ -32,7 +33,8 @@ export const Tweets = ({data})=>{
                 return(
                     <Item key={item.id} >
                         <img src={logo} alt="logo" width={76} height={22}></img>
-                        <img src={picture} alt="picture" width={308} height={168}></img>
+                        <img src={picture} alt="" width={308} height={168}></img>
+                        <img src={rectangle} alt="rectangle"></img>
                         <Img src={item.avatar} alt="avatar" ></Img>
                         <p>{item.tweets} TWEETS</p>
                         <p>{item.followers}FOLLOWERS</p>
