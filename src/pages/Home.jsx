@@ -1,9 +1,9 @@
-import { MainDiv } from "../Main.styled"
+import { MainDiv, Title } from "../Main.styled"
 
  const Home=()=> {
 return (
     <MainDiv>
-      <h1>WELCOME!!!</h1>  
+      <Title>WELCOME TO TWEETS!</Title>  
         
     </MainDiv>
 )
