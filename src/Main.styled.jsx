@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
+
 
 export const MainDiv = styled.div`
 /* margin-right: auto;
@@ -91,3 +93,9 @@ font-size: 18px;
 margin-bottom: 36px;
 
 `
+export const StyledNavLink = styled(NavLink)`
+  color: black;
+  &.active {
+    color: rgb(20, 150, 144);
+  }
+`;
