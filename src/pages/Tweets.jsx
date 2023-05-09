@@ -9,59 +9,48 @@ import { DropDown } from "../components/DropDown";
  const Tweets =()=>{
 
   const [tweets, setTweets] = useState([]);
-  // const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [filterChange, setFilterChange] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const from =location.state?.from || '/';
   const goBackPage = ()=> navigate(from)
- 
-    // useEffect(()=>{
-    //   const getTweets = async ()=>{
-      
-    //   try{
-    //       const responce = await fetchApi.fetchTweet(page);
-    //       setTweets(prev=>([...prev,...responce]))
-    //     }
-    //     catch(error){
-    //       return console.log(error);
-    //     }
-    //   }
-    //     getTweets(page);
-    // },[page]);
+  //  console.log(tweets);  
+  //  console.log(filterChange); 
 useEffect(()=>{
+  
   const getTweets =async ()=> {
     try {
-      const responce = await fetchApi.fetchAllTweet();
-      setTweets(prevTweets=>[...prevTweets,...responce])
-       setFilterChange(prevTweets=>[...prevTweets,...responce])
+      const responce = await fetchApi.fetchTweet(page);
+      setTweets(prev=>[...prev,...responce])
+       setFilterChange(prev=>[...prev,...responce])
     } catch (error) {
       return console.log(error);
     }
   }
   getTweets()
-}, [])
+}, [page])
 
-const value = async e => {
+const value = (e) => {
+  const noLocal = tweets.filter(tweet =>!JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
+  const local = tweets.filter(tweet =>JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
+  )
+  
   const name = e.target.value;
- 
-  switch (name) {
+   switch (name) {
     case 'all':
       setFilterChange(tweets);
       break;
     case 'follow':
       setFilterChange(
-        tweets.filter(tweet =>!JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
-        )
-        
+        noLocal
+         
       );
     
       break;
     case 'following':
       setFilterChange(
-        tweets.filter(tweet =>
-          JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
-        )
+        local
       );
       break;
     default:
@@ -69,23 +58,19 @@ const value = async e => {
   }
 };
 
-
-
-
-    
-  //   const handleLoadMore =()=> {
-  //   setPage((prev)=>prev +1
-  //   )
-  //  }
+    const handleLoadMore =()=> {
+    setPage((prev)=>prev +1
+    )
+   }
        
       return (
        <>
        <Button type="button"onClick={goBackPage}>Go back</Button>
        <DropDown filter={value}/>
-       <TweetsList
-        data={tweets}
+              <TweetsList
+        data={filterChange}
       />
-      {/* {tweets.length<12 &&<Button type="button" onClick={handleLoadMore}>Load More</Button>} */}
+      {tweets.length<12 &&<Button type="button" onClick={handleLoadMore}>Load More</Button>}
       
        </>
       )

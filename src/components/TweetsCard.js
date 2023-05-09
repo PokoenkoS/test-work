@@ -15,22 +15,17 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
    const changeFollowers = async()=>{
 
         const changeSubscription = activeBtn ? follower - 1 : follower + 1;
-        // const changeIsFollowing = !isFollowing ? true : false;
-        // localStorage.setItem('following', JSON.stringify(follower))
-        // setFollower(follower);
-
+        
           try {
           await axios.put(
             `https://6454b20cf803f345762eaf23.mockapi.io/tweets/${id}`,
-            {
-              followers: changeSubscription,
-              // isFollowing: changeIsFollowing
-            }
+            {followers: changeSubscription}
           );
         
           setFollower(changeSubscription);
+         
+          localStorage.setItem(`activeBtn${id}`,JSON.stringify(!activeBtn))
           setActiveBtn(!activeBtn);
-          localStorage.setItem(`activeBtn${id}`, JSON.stringify(!activeBtn))
         } catch (error) {
           console.log(error);
         }
