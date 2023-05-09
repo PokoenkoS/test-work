@@ -1,6 +1,6 @@
 
 import fetchApi from "../services/Api";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState} from "react";
 import TweetsList from "../components/TweetsList"
 import { Button } from "../Main.styled";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -11,8 +11,8 @@ import { useNavigate, useLocation } from "react-router-dom";
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const location = useLocation();
+  const from =location.state?.from || '/';
   const goBackPage = ()=> navigate(from)
-  const from = useRef(location.state?.from ?? '/');
   
     useEffect(()=>{
       const getTweets = async ()=>{
