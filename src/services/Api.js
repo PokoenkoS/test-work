@@ -7,8 +7,18 @@ export const fetchTweet = async (page) => {
   return data;
 };
 
+
+
+export const fetchAllTweet = async () => {
+  const { data } = await axios.get(`/tweets`);
+  return data;
+};
+
+
+
 const api ={
     fetchTweet,
+    fetchAllTweet
 }
 
 export default api;

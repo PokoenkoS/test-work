@@ -6,29 +6,31 @@ import { useState } from "react";
 import axios from 'axios';
 
 
-export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowing }})=>{
+
+export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
 
    const [follower, setFollower] = useState(followers);
-   const [activeBtn, setActiveBtn] = useState(isFollowing);
+   const [activeBtn, setActiveBtn] = useState(JSON.parse(localStorage.getItem(`activeBtn${id}`)));
 
    const changeFollowers = async()=>{
 
-        const changeFollower = !activeBtn ? follower - 1 : follower + 1;
-        const changeIsFollowing = !isFollowing ? true : false;
-        localStorage.setItem('following', JSON.stringify(follower))
-        setFollower(follower);
+        const changeSubscription = activeBtn ? follower - 1 : follower + 1;
+        // const changeIsFollowing = !isFollowing ? true : false;
+        // localStorage.setItem('following', JSON.stringify(follower))
+        // setFollower(follower);
 
           try {
           await axios.put(
             `https://6454b20cf803f345762eaf23.mockapi.io/tweets/${id}`,
             {
-              followers: changeFollower,
-              isFollowing: changeIsFollowing
+              followers: changeSubscription,
+              // isFollowing: changeIsFollowing
             }
           );
         
-          setFollower(changeFollower);
+          setFollower(changeSubscription);
           setActiveBtn(!activeBtn);
+          localStorage.setItem(`activeBtn${id}`, JSON.stringify(!activeBtn))
         } catch (error) {
           console.log(error);
         }
@@ -36,7 +38,8 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
     }
     
     return(
-       <MainDiv>     
+       <MainDiv>    
+       
         <List>
           
           <Item key={id} >
@@ -50,7 +53,7 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
               <ListDiv>
                 <Text>{tweets} TWEETS</Text>
                 <Text>{follower.toLocaleString("en-US")} FOLLOWERS</Text>
-                {activeBtn ? 
+                {!activeBtn ? 
                 (<Button type="button" onClick={changeFollowers}>FOLLOW</Button>)
                 :
                 (<ButtonChange type="button" onClick={changeFollowers}>FOLLOWING</ButtonChange>)}
