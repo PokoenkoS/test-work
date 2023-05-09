@@ -5,17 +5,16 @@ import { TweetsCard } from "./TweetsCard";
 
 
 export const TweetsList = ({data})=>{
-   
-   
+     
      return(
      <MainDiv>     
         <List>
             {data.map((item)=>(
                 <TweetsCard data={item}/>
             ))
-}
-            </List>
-            </MainDiv>    
+            }
+        </List>
+    </MainDiv>    
    
      )
 }

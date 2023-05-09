@@ -8,18 +8,12 @@ import axios from 'axios';
 
 export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowing }})=>{
 
-  //  const [follower, setFollower] = useState(followers);
+   const [follower, setFollower] = useState(followers);
    const [activeBtn, setActiveBtn] = useState(isFollowing);
 
-   const [follower, setFollower] =useState(()=> {
-    const value = JSON.parse(localStorage.getItem("following"));
-    return value ?? [];
-  })
-
-
-     const changeFollowers = async()=>{
-        const changeFollower = activeBtn ? follower - 1 : follower + 1;
-        const changeIsFollowing = !isFollowing ? true : isFollowing=false;
+   const changeFollowers = async()=>{
+        const changeFollower = !activeBtn ? follower - 1 : follower + 1;
+        const changeIsFollowing = !isFollowing ? true : false;
         localStorage.setItem('following', JSON.stringify(follower))
         setFollower(follower);
 
@@ -27,8 +21,9 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
           try {
           await axios.put(
             `https://6454b20cf803f345762eaf23.mockapi.io/tweets/${id}`,
-            {followers: changeFollower,
-            isFollowing: !isFollowing ? true : false
+            {
+              followers: changeFollower,
+              isFollowing: changeIsFollowing
             }
           );
         
@@ -57,7 +52,7 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
                         </DivLine>
                         <ListDiv>
                         <Text>{tweets} TWEETS</Text>
-                        <Text>{follower.toLocaleString('en-US')} FOLLOWERS</Text>
+                        <Text>{follower.toLocaleString("en-US")} FOLLOWERS</Text>
                         {activeBtn ? 
                         (<Button type="button" onClick={changeFollowers}>FOLLOW</Button>)
                         :

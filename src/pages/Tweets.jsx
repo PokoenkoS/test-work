@@ -9,11 +9,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
       const [tweets, setTweets] = useState([]);
       const [page, setPage] = useState(1);
-      // const [followers, setFollowers] =useState(()=> {
-      //   const value = JSON.parse(localStorage.getItem("followers"));
-      //   return value ?? [];
-      // })
-     
       const navigate = useNavigate();
       const location = useLocation();
       const from = location.state?.from || '/';
@@ -24,7 +19,6 @@ import { useNavigate, useLocation } from "react-router-dom";
         try{
             const responce = await fetchApi.fetchTweet(page);
             setTweets(prev=>([...prev,...responce]))
-            // setFollowers(followers => followers = [...responce])
           }
           catch(error){
             return console.log(error);
@@ -49,10 +43,7 @@ import { useNavigate, useLocation } from "react-router-dom";
        <Button type="button"onClick={goBackPage}>Go back</Button>
        <TweetsList
         data={tweets}
-        //  userFollowers={followers}
-        // statusFunction={({user, status})=>setFollowers({user, status})}
-        // isFollowed={followers.includes(id)}
-        />
+      />
        <Button type="button" onClick={handleLoadMore}>Load More</Button>
        </>
       )
