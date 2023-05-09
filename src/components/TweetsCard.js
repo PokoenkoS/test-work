@@ -12,12 +12,12 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
    const [activeBtn, setActiveBtn] = useState(isFollowing);
 
    const changeFollowers = async()=>{
+
         const changeFollower = !activeBtn ? follower - 1 : follower + 1;
         const changeIsFollowing = !isFollowing ? true : false;
         localStorage.setItem('following', JSON.stringify(follower))
         setFollower(follower);
 
-        
           try {
           await axios.put(
             `https://6454b20cf803f345762eaf23.mockapi.io/tweets/${id}`,
@@ -38,32 +38,25 @@ export const TweetsCard =({data:{ user, id, avatar, followers, tweets, isFollowi
     return(
        <MainDiv>     
         <List>
-            
-                    <Item key={id} >
-                        
-                        <Logo src={logo} alt="logo" width={76} height={22}></Logo>
-                        <ImgCard src={picture} alt="" width={308} height={168}></ImgCard>
-                        
-                        
-                        <DivLine>
-                        <Line> </Line>
-                        <Img src={avatar} alt="avatar" ></Img>
-                        <Line> </Line>
-                        </DivLine>
-                        <ListDiv>
-                        <Text>{tweets} TWEETS</Text>
-                        <Text>{follower.toLocaleString("en-US")} FOLLOWERS</Text>
-                        {activeBtn ? 
-                        (<Button type="button" onClick={changeFollowers}>FOLLOW</Button>)
-                        :
-                        (<ButtonChange type="button" onClick={changeFollowers}>FOLLOWING</ButtonChange>)}
-                        </ListDiv>
-                        
-                       
-
-                    </Item>
-                           
-
+          
+          <Item key={id} >
+            <Logo src={logo} alt="logo" width={76} height={22}></Logo>
+              <ImgCard src={picture} alt="" width={308} height={168}></ImgCard>
+              <DivLine>
+                <Line> </Line>
+                <Img src={avatar} alt="avatar" ></Img>
+                <Line> </Line>
+              </DivLine>
+              <ListDiv>
+                <Text>{tweets} TWEETS</Text>
+                <Text>{follower.toLocaleString("en-US")} FOLLOWERS</Text>
+                {activeBtn ? 
+                (<Button type="button" onClick={changeFollowers}>FOLLOW</Button>)
+                :
+                (<ButtonChange type="button" onClick={changeFollowers}>FOLLOWING</ButtonChange>)}
+              </ListDiv>
+          </Item>
+          
         </List>
         </MainDiv> 
     )

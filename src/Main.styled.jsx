@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const MainDiv = styled.div`
   align-items: center;
   background-color: #EBD8FF;
+  /* height: 600px; */
   margin:0;
 `
 export const Item = styled.li`
@@ -30,6 +31,8 @@ export const NavList = styled.ul`
   justify-content: space-around;
   width:1180px;
   background-color: #EBD8FF;
+  border-color: #5CD3A8;
+
 `
 export const Img = styled.img`
   border-radius: 50%;
@@ -42,7 +45,7 @@ export const Img = styled.img`
    
 `
 export const ImgCard = styled.img`
-  padding: 28px 36px 18px 36px;
+  padding: 28px 36px 0px 36px;
 `
 export const Line = styled.p`
 background: #EBD8FF;
@@ -90,6 +93,7 @@ export const ButtonChange = styled.button`
   color: #373737;
   width: 196px;
   height: 50px;
+  font-weight: 600;
   border-radius:10.3px;
   font-family: Montserrat;
   font-style: SemiBold;
@@ -115,13 +119,17 @@ export const Title = styled.h1`
 
 export const Logo = styled.img`
   padding-top: 20px;
-  padding-right: 284px;
+  padding-left: 20px;
   position: absolute;
-  
 `
+
 export const ListDiv = styled.div`
   position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
+`
+export const ImgBoy = styled.img`
+  display: inline-block;
+  padding-left: 600px;
 `

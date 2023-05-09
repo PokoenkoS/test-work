@@ -1,54 +1,49 @@
 
 import fetchApi from "../services/Api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import TweetsList from "../components/TweetsList"
 import { Button } from "../Main.styled";
 import { useNavigate, useLocation } from "react-router-dom";
 
  const Tweets =()=>{
 
-      const [tweets, setTweets] = useState([]);
-      const [page, setPage] = useState(1);
-      const navigate = useNavigate();
-      const location = useLocation();
-      const from = location.state?.from || '/';
-
-      useEffect(()=>{
-        const getTweets = async ()=>{
-       
-        try{
-            const responce = await fetchApi.fetchTweet(page);
-            setTweets(prev=>([...prev,...responce]))
-          }
-          catch(error){
-            return console.log(error);
-          }
-        }
-         getTweets(page);
-      },[page]);
-
-    
-     const handleLoadMore =()=> {
-      setPage((prev)=>prev +1
-      )
+  const [tweets, setTweets] = useState([]);
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const goBackPage = ()=> navigate(from)
+  const from = useRef(location.state?.from ?? '/');
+  
+    useEffect(()=>{
+      const getTweets = async ()=>{
       
-      if(tweets.length===12){
-        return alert('It`s all')
+      try{
+          const responce = await fetchApi.fetchTweet(page);
+          setTweets(prev=>([...prev,...responce]))
+        }
+        catch(error){
+          return console.log(error);
+        }
       }
-     }
-     const goBackPage = () => navigate(from);
+        getTweets(page);
+    },[page]);
+
     
+    const handleLoadMore =()=> {
+    setPage((prev)=>prev +1
+    )
+   }
+       
       return (
        <>
        <Button type="button"onClick={goBackPage}>Go back</Button>
        <TweetsList
         data={tweets}
       />
-       <Button type="button" onClick={handleLoadMore}>Load More</Button>
+      {tweets.length<12 &&<Button type="button" onClick={handleLoadMore}>Load More</Button>}
+      
        </>
       )
     }
     
-
-  
 export default Tweets;

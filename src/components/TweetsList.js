@@ -2,8 +2,6 @@ import React from "react"
 import {  List, MainDiv } from "../Main.styled";
 import { TweetsCard } from "./TweetsCard";
 
-
-
 export const TweetsList = ({data})=>{
      
      return(
@@ -18,6 +16,5 @@ export const TweetsList = ({data})=>{
    
      )
 }
-
 
 export default TweetsList;
