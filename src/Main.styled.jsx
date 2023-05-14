@@ -84,8 +84,11 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 22px;
   cursor: pointer;
-  border: transparent;
   text-transform: uppercase;
+  &:hover {
+    border-color: #5CD3A8;
+    color: #5CD3A8;
+  }
 
 `
 export const ButtonChange = styled.button`
@@ -98,6 +101,11 @@ export const ButtonChange = styled.button`
   font-family: Montserrat;
   font-style: SemiBold;
   font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    border-color: #EBD8FF;
+    color: #4B2A99;
+  }
 `
 export const StyledNavLink = styled(NavLink)`
   color: black;
