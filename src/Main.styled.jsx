@@ -42,40 +42,47 @@ export const Img = styled.img`
   width: 80px;
   height: 80px;
   position: relative;
-  &::before {
-    content: "";
-    background: #EBD8FF;
-    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #AE7BE3,
-    inset 0px 3.43693px 2.5777px #FBF8FF;
-    height: 8px;
-    width: 142px;
-
-
-    display: block;
-    position: absolute;
-    /* background-image: url("../images/Boy.png"); */
-    /* background:red;
-    border-radius: 2px; */
-  }
+  
   `
 
 export const ImgCard = styled.img`
   padding: 28px 36px 0px 36px;
 `
-export const Line = styled.p`
-background: #EBD8FF;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #AE7BE3,
-    inset 0px 3.43693px 2.5777px #FBF8FF;
-height: 8px;
-width: 142px;
-`
+
 
 export const DivLine= styled.div`
   display:flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+  &::after {
+    
+    display: block;
+    content: "";
+    background-color: #EBD8FF;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #AE7BE3,
+    inset 0px 3.43693px 2.5777px #FBF8FF;
+    height: 8px;
+    width: 142px;
+    border-radius: 2px;
+
+      
+  }
+  &::before {
+    
+    display: block;
+    content: "";
+    background-color: #EBD8FF;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #AE7BE3,
+    inset 0px 3.43693px 2.5777px #FBF8FF;
+    height: 8px;
+    width: 142px;
+    border-radius: 2px;
+
+       
+  }
   
 `
 export const Text = styled.p`

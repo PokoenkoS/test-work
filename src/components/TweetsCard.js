@@ -37,9 +37,7 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
             <Logo src={logo} alt="logo" width={76} height={22}></Logo>
               <ImgCard src={picture} alt="" width={308} height={168}></ImgCard>
               <DivLine>
-                <Line> </Line>
                 <Img src={avatar} alt="avatar" ></Img>
-                <Line> </Line>
               </DivLine>
               <ListDiv>
                 <Text>{tweets} TWEETS</Text>
