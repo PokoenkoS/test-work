@@ -43,12 +43,8 @@ export const Item = styled.li`
     height: 8px;
     width: 142px;
     border-radius: 2px;
-
-      
   }
- 
-  
-`
+ `
 export const Text = styled.p`
   font-style: Medium;
   color: #EBD8FF;
@@ -60,17 +56,17 @@ export const Text = styled.p`
   margin: 15px;
 `
 export const Button = styled.button`
+
   background-color: #EBD8FF;
   color: #373737;
   width: 196px;
   height: 50px;
-  border-radius:10.3px;
+  border-radius:10px;
   font-style: SemiBold;
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
-  text-transform: uppercase;
-  &:hover {
+   &:hover {
     border-color: #5CD3A8;
     color: #5CD3A8;
   }
@@ -83,7 +79,6 @@ export const ButtonChange = styled.button`
   height: 50px;
   font-weight: 600;
   border-radius:10.3px;
-  font-family: Montserrat;
   font-style: SemiBold;
   font-size: 18px;
     &:hover {

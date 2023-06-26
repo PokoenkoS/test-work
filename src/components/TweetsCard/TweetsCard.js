@@ -40,9 +40,12 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
                 <Text>{tweets} TWEETS</Text>
                 <Text>{follower.toLocaleString("en-US")} FOLLOWERS</Text>
                 {!activeBtn ? 
-                (<Button type="button" onClick={changeFollowers}>FOLLOW</Button>)
+                (
+                <Button type="button" onClick={changeFollowers}>FOLLOW</Button>
+                 )
                 :
-                (<ButtonChange type="button" onClick={changeFollowers}>FOLLOWING</ButtonChange>)}
+                (<ButtonChange type="button" onClick={changeFollowers}>FOLLOWING</ButtonChange>)
+                } 
               </ListDiv>
           </Item>
           

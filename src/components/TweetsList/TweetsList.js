@@ -1,5 +1,5 @@
 import React from "react"
-import {  List, MainDiv } from "../../Main.styled";
+import {  List, MainDiv } from "./TweetsList.styled";
 import { TweetsCard } from "../TweetsCard/TweetsCard";
 
 export const TweetsList = ({data})=>{
