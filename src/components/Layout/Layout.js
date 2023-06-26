@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { MainDiv, NavList, StyledNavLink } from './Main.styled';
-
+import { NavList, StyledNavLink } from '../../pages/Main.styled';
+import { MainDiv} from "../../components/TweetsList/TweetsList.styled"
 
 
 export const Layout = () => {

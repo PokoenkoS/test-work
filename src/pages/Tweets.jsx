@@ -4,7 +4,7 @@ import { useEffect, useState} from "react";
 import TweetsList from "../components/TweetsList/TweetsList"
 import { Button } from "../components/TweetsCard/TweetsCard.styled";
 import { useNavigate, useLocation } from "react-router-dom";
-import { DropDown } from "../components/DropDown";
+import { DropDown } from "../components/DropDown/DropDown";
 
  const Tweets =()=>{
 
@@ -22,7 +22,7 @@ useEffect(()=>{
     try {
       const responce = await fetchApi.fetchTweet(page);
       setTweets(prev=>[...prev,...responce])
-       setFilterChange(prev=>[...prev,...responce])
+      setFilterChange(prev=>[...prev,...responce])
     } catch (error) {
       return console.log(error);
     }
@@ -31,27 +31,26 @@ useEffect(()=>{
 }, [page])
 
 const value = (e) => {
-  const noLocal = tweets.filter(tweet =>!JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
-  const local = tweets.filter(tweet =>JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
-  )
   
   const name = e.target.value;
    switch (name) {
+
     case 'all':
       setFilterChange(tweets);
       break;
+
     case 'follow':
       setFilterChange(
-        noLocal
-         
+      tweets.filter(tweet =>!JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
       );
-    
-      break;
+     break;
+
     case 'following':
       setFilterChange(
-        local
-      );
+      tweets.filter(tweet =>JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
+        );
       break;
+
     default:
       return;
   }
@@ -66,7 +65,7 @@ const value = (e) => {
        <>
        <Button type="button"onClick={goBackPage}>Go back</Button>
        <DropDown filter={value}/>
-              <TweetsList
+       <TweetsList
         data={filterChange}
       />
       {tweets.length<12 &&<Button type="button" onClick={handleLoadMore}>Load More</Button>}
