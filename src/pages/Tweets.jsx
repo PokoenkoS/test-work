@@ -2,7 +2,7 @@
 import fetchApi from "../services/Api";
 import { useEffect, useState} from "react";
 import TweetsList from "../components/TweetsList/TweetsList"
-import { Button } from "../Main.styled";
+import { Button } from "../components/TweetsCard/TweetsCard.styled";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DropDown } from "../components/DropDown";
 
