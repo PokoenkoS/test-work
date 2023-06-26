@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktest_work=self.webpackChunktest_work||[]).push([[630],{424:function(e,t,n){n.r(t),n.d(t,{default:function(){return u}});var s=n(103),r=n.p+"static/media/Boy.e70bc2802efa1b14eda5.png",c=n(184),u=function(){return(0,c.jsxs)(s.KK,{children:[(0,c.jsx)(s.Dx,{children:"WELCOME TO TWEETS!"}),(0,c.jsx)(s.P_,{src:r,alt:"boy"})]})}}}]);
-//# sourceMappingURL=630.0270fcac.chunk.js.map
