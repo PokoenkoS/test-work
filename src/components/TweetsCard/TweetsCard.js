@@ -1,7 +1,8 @@
 import React from "react";
-import { Item, Img, Line,DivLine, Text, Button, ButtonChange, Logo, ImgCard, ListDiv } from "../Main.styled";
-import logo from "../image/logo.svg";
-import picture from "../image/picture.svg";
+import {  Img, DivLine, Text, Button, ButtonChange, Logo, ImgCard, ListDiv } from "../../Main.styled";
+import {Item} from "./TweetsCard.styled"
+// import logo from "../image/logo.svg";
+// import picture from "../image/picture.svg";
 import { useState } from "react";
 import axios from 'axios';
 
@@ -34,8 +35,18 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
     return(
                
           <Item key={id} >
-            <Logo src={logo} alt="logo" width={76} height={22}></Logo>
-              <ImgCard src={picture} alt="" width={308} height={168}></ImgCard>
+            <Logo
+            //  src={logo}
+            //   alt="logo"
+            //    width={76}
+            //     height={22}
+                ></Logo>
+              <ImgCard 
+              // src={picture}
+              //  alt=""
+              //   width={308}
+              //    height={168}
+                 ></ImgCard>
               <DivLine>
                 <Img src={avatar} alt="avatar" ></Img>
               </DivLine>

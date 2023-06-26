@@ -1,7 +1,7 @@
 
 import fetchApi from "../services/Api";
 import { useEffect, useState} from "react";
-import TweetsList from "../components/TweetsList"
+import TweetsList from "../components/TweetsList/TweetsList"
 import { Button } from "../Main.styled";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DropDown } from "../components/DropDown";
