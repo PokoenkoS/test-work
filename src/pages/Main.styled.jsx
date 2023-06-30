@@ -49,3 +49,21 @@ export const ImgBoy = styled.img`
   display: inline-block;
   padding-left: 600px;
 `
+export const Button = styled.button`
+  border:none;
+  background-color: #5CD3A8;
+  color: #373737;
+  width: 100px;
+  height: 30px;
+  border-radius:10px;
+  font-style: SemiBold;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+   &:hover {
+    border-color: #510f98;
+    color:  #5CD3A8;
+    background-color: #510f98;
+  }
+
+`
