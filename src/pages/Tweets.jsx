@@ -2,7 +2,7 @@
 import fetchApi from "../services/Api";
 import { useEffect, useState} from "react";
 import TweetsList from "../components/TweetsList/TweetsList"
-import { Button } from "./Main.styled";
+import { Button, Div } from "./Main.styled";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DropDown } from "../components/DropDown/DropDown";
 
@@ -62,7 +62,7 @@ const value = (e) => {
    }
        
       return (
-       <>
+       <Div>
        <Button type="button"onClick={goBackPage}>Go back</Button>
        <DropDown filter={value}/>
        <TweetsList
@@ -70,7 +70,7 @@ const value = (e) => {
       />
       {tweets.length<12 &&<Button type="button" onClick={handleLoadMore}>Load More</Button>}
       
-       </>
+       </Div>
       )
     }
     

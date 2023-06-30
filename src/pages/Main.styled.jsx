@@ -8,6 +8,10 @@ export const MainDiv = styled.div`
    height: 1200px;
    padding-left: 70px;
 `
+export const Div = styled.div`
+  padding-left: 70px;
+  
+`
 
 
 export const NavList = styled.ul`
@@ -17,7 +21,8 @@ padding-top: 15px;
   width:100%;
   height:80px;
   background-color: #EBD8FF;
-  border-color: #5CD3A8;
+  border-bottom: 3px solid #510f98;
+  box-shadow: 0px 10px 60px 0px rgba(20, 12, 83, 0.823);
  
 `
 
@@ -60,6 +65,7 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
+ margin-top: 15px;
    &:hover {
     border-color: #510f98;
     color:  #5CD3A8;

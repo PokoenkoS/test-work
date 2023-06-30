@@ -4,12 +4,13 @@ export const Drop = styled.select`
 width: 150px;
 height: 30px;
 border: none;
+padding:5px;
 border-radius: 10px;
 margin-bottom: 15px;
 font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 22px;
-  margin-left: 680px;
+  margin-left: 620px;
   background-color: #5CD3A8;
   cursor: pointer;
   &::hover{
