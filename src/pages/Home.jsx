@@ -1,5 +1,5 @@
 import { Title, ImgBoy } from "./Main.styled"
-import { MainDiv} from "../components/TweetsList/TweetsList.styled"
+import { MainDiv} from "./Main.styled"
 import boy from "../image/Boy.png";
 
  const Home=()=> {

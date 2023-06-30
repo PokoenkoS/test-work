@@ -15,7 +15,7 @@ import { DropDown } from "../components/DropDown/DropDown";
   const location = useLocation();
   const from =location.state?.from || '/';
   const goBackPage = ()=> navigate(from)
-   
+   console.log(tweets);
 useEffect(()=>{
   
   const getTweets =async ()=> {
