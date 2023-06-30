@@ -16,7 +16,7 @@ font-weight: 600;
   &::hover{
     background-color: #EBD8FF;
   }
-  /* border: transparent; */
+ 
 `
 
 export const Type = styled.option`
