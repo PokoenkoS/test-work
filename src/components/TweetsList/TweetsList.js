@@ -3,8 +3,8 @@ import {  List, MainDiv } from "./TweetsList.styled";
 import { TweetsCard } from "../TweetsCard/TweetsCard";
 
 export const TweetsList = ({data})=>{
-    //  console.log(data);
-     return(
+   
+    return(
      <MainDiv>     
         <List>
             {data.map((item)=>(

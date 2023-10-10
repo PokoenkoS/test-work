@@ -7,14 +7,12 @@ import axios from 'axios';
 export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
 
    const [follower, setFollower] = useState(followers);
-  //  const [activeBtn, setActiveBtn] = useState(JSON.parse(localStorage.getItem(`activeBtn${id}`)));
-  const [activeBtn, setActiveBtn] = useState(false);
-  //  const [isFollowing, setIsFollowing] = useState(true);
-  // console.log(activeBtn);
+   const [activeBtn, setActiveBtn] = useState(JSON.parse(localStorage.getItem(`activeBtn${id}`)));
+ 
    const changeFollowers = async()=>{
 
         const changeSubscription = activeBtn ? follower - 1 : follower + 1;
-        // const changeIsFollowing = !isFollowing ;
+      
           await axios.put(
             `https://6454b20cf803f345762eaf23.mockapi.io/tweets/${id}`,
             {followers: changeSubscription}
@@ -24,7 +22,7 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
          
           localStorage.setItem(`activeBtn${id}`,JSON.stringify(!activeBtn))
           setActiveBtn(!activeBtn);
-          // setIsFollowing(!isFollowing);
+         
         } 
         // catch (error) {
         //   console.log(error);
