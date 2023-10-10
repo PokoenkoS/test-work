@@ -24,12 +24,7 @@ export const TweetsCard =({data:{ id, avatar, followers, tweets}})=>{
           setActiveBtn(!activeBtn);
          
         } 
-        // catch (error) {
-        //   console.log(error);
-        // }
-
-    // }
-    
+      
     return(
                
           <Item key={id} >

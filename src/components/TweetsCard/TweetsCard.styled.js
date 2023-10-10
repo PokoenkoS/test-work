@@ -10,6 +10,7 @@ export const Item = styled.li`
   width: 380px;
   height:460px;
   background-color: #4B2A99 ;
+  margin-left: 45px;
   margin-right: 48px;
   margin-bottom: 48px; 
   padding-bottom:36px;
