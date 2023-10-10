@@ -44,7 +44,7 @@ export const Title = styled.h1`
   font-family: Montserrat;
   font-style: SemiBold;
   font-size: 40px;
-  padding-left:480px;
+  padding-left:620px;
   padding-top:30px;
   display: block;
 `
@@ -53,7 +53,7 @@ export const Title = styled.h1`
 
 export const ImgBoy = styled.img`
   display: inline-block;
-  padding-left: 650px;
+  padding-left: 800px;
   margin-top:50px;
 `
 export const Button = styled.button`
