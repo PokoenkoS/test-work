@@ -6,10 +6,10 @@ export const MainDiv = styled.div`
   background-color: #510f98;
    margin:0;
    height: 1200px;
-   /* padding-left: 70px; */
+   
 `
 export const Div = styled.div`
-  /* padding-left: 70px; */
+  
   
 `
 

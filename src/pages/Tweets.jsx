@@ -15,8 +15,8 @@ import { DropDown } from "../components/DropDown/DropDown";
   const location = useLocation();
   const from =location.state?.from || '/';
   const goBackPage = ()=> navigate(from)
-   
-
+  //  console.log(tweets);
+console.log(filterChange);
     useEffect(()=>{
       const getTweets =async ()=> {
     try {
@@ -33,6 +33,7 @@ import { DropDown } from "../components/DropDown/DropDown";
 const value = (e) => {
   
   const name = e.target.value;
+  // console.log(name);
    switch (name) {
 
     case 'all':
@@ -41,13 +42,20 @@ const value = (e) => {
 
     case 'follow':
       setFilterChange(
-      tweets.filter(tweet =>!JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
+      tweets.filter(tweet => !tweet.isFollowing
+        // JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
+        )
+      // tweets.filter(tweet=>console.log(tweet.isFollowing.true) )
       );
      break;
 
     case 'following':
       setFilterChange(
-      tweets.filter(tweet =>JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`)))
+      tweets.filter(
+        tweet => tweet.isFollowing
+        // tweet =>JSON.parse(localStorage.getItem(`activeBtn${tweet.id}`))
+        )
+      // tweets.filter(tweet=>console.log(tweet.isFollowing.false) )
         );
       break;
 
