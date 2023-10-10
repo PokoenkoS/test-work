@@ -6,10 +6,10 @@ export const MainDiv = styled.div`
   background-color: #510f98;
    margin:0;
    height: 1200px;
-   padding-left: 70px;
+   /* padding-left: 70px; */
 `
 export const Div = styled.div`
-  padding-left: 70px;
+  /* padding-left: 70px; */
   
 `
 
@@ -44,7 +44,8 @@ export const Title = styled.h1`
   font-family: Montserrat;
   font-style: SemiBold;
   font-size: 40px;
-  padding-left:420px;
+  padding-left:480px;
+  padding-top:30px;
   display: block;
 `
 
@@ -52,7 +53,8 @@ export const Title = styled.h1`
 
 export const ImgBoy = styled.img`
   display: inline-block;
-  padding-left: 600px;
+  padding-left: 650px;
+  margin-top:50px;
 `
 export const Button = styled.button`
   border:none;
